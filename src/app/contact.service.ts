@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { stringify } from 'querystring';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +10,9 @@ export class ContactService {
   constructor(private http: HttpClient) { }
   getContacts() {
 
-   return this.http.get(this.API_URL + 'contacts');
+   // return this.http.get(this.API_URL + 'contacts');
+   // return this.http.get('http://localhost:8080/contacts');
+   return this.http.get('/api/contacts');
   }
   getContact(contactId) {
    return this.http.get(`${this.API_URL + 'contacts'}/${contactId}`);
